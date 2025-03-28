@@ -5,7 +5,7 @@ import seaborn as sns
 #Load the data(stackoverflow_full.csv)
 
 df=pd.read_csv('data/stackoverflow_full.csv')
-df = df.drop(columns=['MentalHealth', 'MainBranch', 'YearsCode', 'YearsCodePro','Unnamed: 0','PreviousSalary','ComputerSkills'])
+df = df.drop(columns=['MentalHealth', 'MainBranch', 'YearsCode', 'YearsCodePro','Unnamed: 0','PreviousSalary','ComputerSkills','Accessibility'])
 df = df.dropna(subset=['HaveWorkedWith'])
 
 print(df.info())
