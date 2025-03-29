@@ -1,5 +1,6 @@
 import os
 import pandas as pd
+import numpy as np
 
 
 class Stackoverflowloader:
@@ -24,6 +25,7 @@ class Stackoverflowloader:
     country=can['Country']
     worked_with =','.join(can['HaveWorkedWith'].split(';'))
     curr_employed='Currently employed' if can['Employed'] ==1 else 'currently unemployed'
+    race= can['Race']
 
            
     # Return the formatted string
@@ -31,6 +33,7 @@ class Stackoverflowloader:
       f"Candidate is {age} years old. "
       f"Candidate has a {edu} degree. "
       f"Candidate is a {gender}. "
+      f"candidate is {race}. "
       f"Candidate is from the country of {country}. "
       f"Candidate has worked with {worked_with}. "
       f"Candidate is {curr_employed}."
@@ -38,13 +41,18 @@ class Stackoverflowloader:
 
 # The main execution block
 
-if __name__ =='__main__':
+if __name__ =='__main__': 
+
 
   loader= Stackoverflowloader()
   df= loader.load()
 
-  df['Description']= df.apply(lambda row: loader.describe_candidate(row),axis=1)
+  races = ['Caucasian', 'African American', 'Asian', 'Other']
+  np.random.seed(42)
+  df['Race'] = np.random.choice(races, size=len(df))
 
+  loader.df = df
+  df['Description']= df.apply(lambda row: loader.describe_candidate(row),axis=1)
   df.to_csv('../data/cleaned_data.csv', index=False)
 
   print(df[['Description']].head())

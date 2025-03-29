@@ -34,12 +34,15 @@ class Decider:
 
 if __name__ == "__main__":
 
+    
+
     job_desc = """
     Looking for a web developer with experience in modern web technologies such as JavaScript, Python, HTML, and popular frameworks. We are open to various backgrounds and skillsets.
     """
 
     loader = Stackoverflowloader(file_path='data/cleaned_data.csv')
     df = loader.load()
+
 
     decisions=[]
     decider = Decider(job_desc) 
