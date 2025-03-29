@@ -17,6 +17,7 @@ print(df.describe(include='all'))
 
 df.to_csv('data/cleaned_data.csv', index=False)
 
+#visualizations
 sns.countplot(x="Gender", data=df)
 plt.title("Gender Distribution")
 
