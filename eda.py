@@ -7,6 +7,9 @@ import seaborn as sns
 df=pd.read_csv('data/stackoverflow_full.csv')
 df = df.drop(columns=['MentalHealth', 'MainBranch', 'YearsCode', 'YearsCodePro','Unnamed: 0','PreviousSalary','ComputerSkills','Accessibility'])
 df = df.dropna(subset=['HaveWorkedWith'])
+# Renaming the 'Employment' column to 'PrevEmploymentStatus'
+df = df.rename(columns={'Employment': 'PrevEmploymentStatus'})
+
 
 print(df.info())
 print(df.isnull().sum())
