@@ -7,7 +7,7 @@ class Stackoverflowloader:
 
       if file_path is None:
         file_path = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'data', 'cleaned_data.csv')
-        self.df = pd.read_csv(file_path)
+      self.df = pd.read_csv(file_path)
 
   
   def load(self):

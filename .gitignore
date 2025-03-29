@@ -3,3 +3,4 @@ __pycache__/
 *.pyc
 resume_decided.csv
 data/cleaned_data.csv
+data/llm_decisions.csv

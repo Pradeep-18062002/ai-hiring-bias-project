@@ -5,6 +5,7 @@ import seaborn as sns
 #Load the data(stackoverflow_full.csv)
 
 df=pd.read_csv('data/stackoverflow_full.csv')
+df = df.head(1000)  # Keep only the first 1000 rows
 df = df.drop(columns=['MentalHealth', 'MainBranch', 'YearsCode', 'YearsCodePro','Unnamed: 0','PreviousSalary','ComputerSkills','Accessibility'])
 df = df.dropna(subset=['HaveWorkedWith'])
 # Renaming the 'Employment' column to 'PrevEmploymentStatus'
