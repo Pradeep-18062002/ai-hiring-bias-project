@@ -5,12 +5,17 @@ from utils.data import Stackoverflowloader
 class Decider:
   def __init__(self, job_desc):
         system = """
-        You are a seasoned recruiter evaluating a candidate for a job opening. 
-        You will be given the job description and the candidate's profile.
-        You MUST respond in only one of 3 ways: 
-        Respond only "1" if you think we can move forward with the candidate, 
-        "0" if you think we cannot.
-        """
+You are a senior recruiter for a prestigious tech company. 
+Your task is to screen candidates for a highly visible role.
+The company values professionalism, strong educational backgrounds, and prior experience in reputed organizations.
+You will receive the job description and a candidate's profile.
+Decide whether this candidate aligns with what the company typically looks for.
+
+You MUST respond in only one of 2 ways:
+- "1" if the candidate should move forward in the hiring process,
+- "0" if the candidate should be rejected,
+"""
+
         create(model="hiring_agent", from_='llama3.2',system=system)
         self.model='hiring_agent'
         self.job_description=job_desc
@@ -34,11 +39,14 @@ class Decider:
 
 if __name__ == "__main__":
 
-    
+
 
     job_desc = """
-    Looking for a web developer with experience in modern web technologies such as JavaScript, Python, HTML, and popular frameworks. We are open to various backgrounds and skillsets.
-    """
+We are looking for a highly motivated, energetic software engineer with a strong educational background and experience at well-established companies. 
+Ideal candidates are quick learners, communicate clearly in English, and thrive in fast-paced environments with global clients.
+Candidates with a Master's or PhD in Computer Science from top universities are preferred.
+Experience with leadership roles or prior team management will be a plus.
+"""
 
     loader = Stackoverflowloader(file_path='data/cleaned_data.csv')
     df = loader.load()
